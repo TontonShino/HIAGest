@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Accueil";
+}
+<div class="jumbotron" >
+    <div class="container">
+        <h1>Bienvenue sur l'Outil HIA-GEST</h1>
+        <p>Cet outil a pour but d'ajouter, d'editer, de supprimer des équipements de la base de données d'HIA. Il vous permettra également de rechercher un équipement en particulier selon son numéro de série, son descriptif, son nom etc ...</p>
+    </div>
+</div>
+
+<div class="container">
+    <p></p>
+    <h1>Connexion</h1>
+    <p>Pour pouvoir accéder à l'application veuillez vous connecter</p>
+    <form action="~/Home/connect">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Identifiant:</label>
+            <input name="id" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre identifiant">
+            <small id="emailHelp" class="form-text text-muted">Veillez à ne pas communiquer vos identifiants.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mot de passe:</label>
+            <input name="mdp" type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrez votre mot de passe">
+        </div>
+        <button type="submit" class="btn btn-primary">Connexion</button>
+
+    </form>
+    <p style="color:red">@ViewBag.erreur</p>
+    <div>
+        <h2>Demande de code d'accès</h2>
+        <p>Pour toute demande de code d'accès veuillez vous adresser à votre responsable équipement.</p>
+    </div>
+</div>
+
+

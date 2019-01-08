@@ -1,0 +1,111 @@
+﻿@model IEnumerable<HIA_Equipementv2.Models.Utilisateur>
+
+@{
+    Layout = "~/Views/Shared/_connectedLayoutUtilisateurs.cshtml";
+    ViewBag.Title = "Recherche Rapide";
+
+    //Fonction qui change les couleurs des cases en fonction des accès oui-->vert non-->red
+    string ChBg(char acces)
+    {
+        if(acces=='o')
+        {
+            return "bg-success";
+        }
+        else
+        {
+            return "bg-danger";
+        }
+        ;
+    }
+}
+
+<div class="container" style="margin-top:15px">
+    <p>@Html.ActionLink("Ajouter un nouvel utilisateur/utilisatrice", "Create", new { area = "" }, new { @class = "btn btn-primary" })</p>
+</div>
+<div class="container">
+    <h2>Resultat Recherche Rapide</h2>
+</div>
+
+
+<div class="container">
+    <table class="table table-sm table-bordered table-dark">
+        <thead>
+        <tr class="header" id="myHeader">
+
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.identifiant)
+            </th>
+
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.prenom)
+            </th>
+            <th scope="col">
+                Nom
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.adresse_mail)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.fonction)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.fk_acces)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.gest_consltation)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.gest_user)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.gest_statut)
+            </th>
+            <th scope="col">
+                Action
+            </th>
+
+        </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+        <tr>
+            <td >
+                @Html.DisplayFor(modelItem => item.identifiant)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresse_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fonction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fk_acces)
+            </td>
+            <td class="@ChBg(item.gest_consltation) ">
+                <!--@Html.DisplayFor(modelItem => item.gest_consltation)-->
+            </td>
+            <td class="@ChBg(item.gest_user) ">
+                <!--Html.DisplayFor(modelItem => item.gest_user)-->
+            </td>
+            <td class="@ChBg(item.gest_statut)">
+                <!--Html.DisplayFor(modelItem => item.gest_statut)-->
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.identifiant}) |
+                @Html.ActionLink("Details", "DetailsUser", new {id = item.identifiant}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.identifiant})
+            </td>
+        </tr>
+            </tbody>
+        }
+
+    </table>
+</div>

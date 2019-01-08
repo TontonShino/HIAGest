@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_connectedLayoutUtilisateurs.cshtml";
+    ViewBag.Title = "Result";
+    //Méthode qui change le bg en fonction du resultat
+    string ChBg(string result)
+    {
+        if (result == "ok")
+        {
+            return "bg-success";
+        }
+        else
+        {
+            return "bg-danger";
+        }
+    }
+    string ChTx(string result)
+    {
+        if (result == "ok")
+        {
+            return "La demande a bien été effectué:";
+        }
+        else
+        {
+            return "Une erreur est survenue. Veuillez réessayer en vérifiant vos informations si le problème persiste veuillez vous adresser au responsable informatique.";
+        }
+    }
+}
+<div class="container">
+    <h2>Resultat</h2>
+    <div class="col-5 @ChBg(ViewBag.Message)">
+        <p>@ChTx(ViewBag.Message) : @ViewBag.Message</p>
+    </div>
+</div>
+<div class="container">
+    @Html.ActionLink("Retour", "Index", "Utilisateurs", new { aera = "" }, new { @class = "btn btn-primary" })
+</div>

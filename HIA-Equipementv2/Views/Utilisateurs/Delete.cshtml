@@ -1,0 +1,62 @@
+﻿@model HIA_Equipementv2.Models.Utilisateur
+
+@{
+    Layout = "~/Views/Shared/_connectedLayoutUtilisateurs.cshtml";
+    ViewBag.Title = "Delete";
+}
+<div class="container">
+    <h2>Suppresion</h2>
+
+    <h3>Êtes vous sur de vouloir supprimer cet utilisateur/rice?</h3>
+    <div>
+        <h4>Utilisateur</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.prenom)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.prenom)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nom)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nom)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.adresse_mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.adresse_mail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fonction)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fonction)
+            </dd>
+
+
+        </dl>
+
+        @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ActionLink("Supprimer", "deleteUtilisateurById", new { identifiant=Model.identifiant, access=Model.fk_acces }, new { @class = "btn btn-primary" })
+        <div class="form-actions no-color">
+            <input type="submit" value="" class="btn btn-default" /> |
+            @Html.ActionLink("Retour", "Index")
+        </div>
+}
+    </div>
+</div>

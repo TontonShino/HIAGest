@@ -1,0 +1,99 @@
+﻿@model IEnumerable<HIA_Equipementv2.Models.Equipement>
+@{
+
+    Layout = "~/Views/Shared/_connectedLayout.cshtml";
+    ViewBag.Title = "Recherche rapide";
+
+    //fonction qui change la ligne en fonction de l'état
+    string ChBg(string statut)
+    {
+        switch(statut)
+        {
+            case "En service":
+                return "bg-success"; //Vert
+                break;
+            case "En panne":
+                return "bg-danger"; //rouge
+                break;
+
+                
+
+            default:
+                return "bg-warning"; //orange /jaune
+
+                break;
+        }
+
+    }
+}
+
+    <div class="container" style="margin-top:15px">
+        @Html.ActionLink("Ajouter un nouvel équipement", "Create", "Equipements", new { area = "" }, new { @class = "btn btn-primary" })
+    </div>
+
+    <div class="container">
+        <h2>Resultat recherche rapide</h2>
+
+        <table class="table table-sm table-bordered ">
+            <tr>
+                <th scope="col">
+                    Identifiant interne 
+                </th>
+                <th scope="col">
+                    N/S
+                </th>
+                <th scope="col">
+                    Nom
+                </th>
+                <th scope="col">
+                    Description
+                </th>
+                <th scope="col">
+                    Type
+                </th>
+                <th scope="col">
+                    Statut
+                </th>
+                <th scope="col">
+                    Date/Heure
+                </th>
+                <th scope="col">
+                    Action
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+        {
+            <tr class="@ChBg(item.statut)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.idEquipement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.serial_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.statut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.time)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.idEquipement }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.idEquipement }) |
+                    @Html.ActionLink("Modifier statut", "changeStatus", new { id = item.idEquipement  }) |
+                    @Html.ActionLink("Historique", "Historique", new {id=item.idEquipement})
+                </td>
+            </tr>
+    }
+
+        </table>
+    </div>

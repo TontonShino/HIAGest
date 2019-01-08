@@ -1,0 +1,40 @@
+﻿@model HIA_Equipementv2.Models.Equipement
+
+@{
+    ViewBag.Title = "Resultat";
+    Layout = "~/Views/Shared/_connectedLayout.cshtml";
+
+    //Méthode qui change le bg en fonction du resultat
+    string ChBg(string result)
+    {
+        if(result=="ok")
+        {
+            return "bg-success";
+        }
+        else
+        {
+            return "bg-danger";
+        }
+    }
+    string ChTx(string result)
+    {
+        if(result=="ok")
+        {
+            return "La demande a bien été effectué:lz";
+        }
+        else
+        {
+            return "Une erreur est survenue. Veuillez réessayer en vérifiant vos informations si le problème persiste veuillez vous adresser au responsable informatique.";
+        }
+    }
+}
+
+<div class="container">
+    <h1>Résultat</h1>
+    <div class="col-5 @ChBg(ViewBag.Result)"><!--ici la couleur ChBg-->
+        <!--ici le message ChTx --><p>@ChTx(ViewBag.Result) : @ViewBag.Result </p>
+    </div>
+    @Html.ActionLink("Retour","Index","Equipements", new {@class="btn btn-primary"})
+
+</div>
+

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<HIA_Equipementv2.Models.Metaclasse.Agir>
+
+@{
+    Layout = "~/Views/Shared/_connectedLayout.cshtml";
+    ViewBag.Title = "Historique";
+}
+<div class="container">
+    <h2>Historique</h2>
+
+</div>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.IdAgir)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Action)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.IdEquipement)
+            </th>
+            <th scope="col">>
+                @Html.DisplayNameFor(model => model.IdUtilisateur)
+            </th>
+            <th scope="col">>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Sn)
+            </th >
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Horaire)
+            </th>
+            <th scope="col"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAgir)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Action)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEquipement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUtilisateur)
+                    @Html.ActionLink("Voir Utilisateur","DetailsUser","Utilisateurs", new {id=item.IdUtilisateur},"")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Horaire)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "DetailsUser", new { id= item.IdUtilisateur/* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

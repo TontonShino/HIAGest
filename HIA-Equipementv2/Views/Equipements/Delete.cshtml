@@ -1,0 +1,78 @@
+﻿@model HIA_Equipementv2.Models.Equipement
+
+@{
+    Layout = "~/Views/Shared/_connectedLayout.cshtml";
+    ViewBag.Title = "Supprimer Equipement";
+}
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+
+    <h3>Êtes vous sur de vouloir supprimer cet équipement définitivement?</h3>
+    <div>
+        <h4>Suppression</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt class="col">
+                ID:
+            </dt>
+
+            <dd class="col">
+                @Html.DisplayFor(model => model.idEquipement)
+            </dd>
+
+            <dt class="col">
+               Numéro de Série:
+            </dt>
+
+            <dd class="col">
+                @Html.DisplayFor(model => model.serial_number)
+            </dd>
+
+            <dt class="col">
+               Nom:
+            </dt>
+
+            <dd class="col">
+                @Html.DisplayFor(model => model.nom)
+            </dd>
+
+            <dt class="col">
+                Description:
+            </dt>
+
+            <dd class="col">
+                @Html.DisplayFor(model => model.description)
+            </dd>
+
+            <dt class="col">
+                Type:
+            </dt>
+
+            <dd class="col">
+                @Html.DisplayFor(model => model.type)
+            </dd>
+
+
+        </dl>
+
+        @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <form action="~/Equipements/deleteEquipementById">
+            <div class="form-group">
+                <div class="form-actions">
+                    <input class="form-control"  name="idEquipement" value=@Model.idEquipement disabled />
+
+                </div>
+
+
+            </div>
+
+        </form>
+        @Html.ActionLink("Supprimer", "deleteEquipementById", new { idEquipement = Model.idEquipement, fk_statut=Model.fk_statut }, new { @class = "btn btn-primary" })
+}
+       
+
+
+    </div>
+    </div>

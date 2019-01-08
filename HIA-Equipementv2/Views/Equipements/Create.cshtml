@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_connectedLayout.cshtml";
+    ViewBag.Title = "Ajout d'équipement";
+}
+<div class="container">
+    <h2>Ajout d'un nouvel équipement</h2>
+    <p>Pour ajouter un nouvel équipement, veuillez rassembler les informations qui concerne celui-ci.</p>
+</div>
+<div class="container">
+    <form action="~/Equipements/createNewEquipement">
+        <div class="form-group col">
+            <input class="form-control" type="text" name="p_nom" placeholder="Nom de l'équipement">
+        </div>
+        <div class="form-group col">
+            <input class="form-control" type="text" name="p_description" placeholder="Description">
+        </div>
+        <div class="form-group col">
+            <select class="form-control" value="type" name="p_type">
+                <option>Lit</option>
+                <option>Fauteuil</option>
+                <option>Outil</option>
+                <option>Siège</option>
+                <option>Ordinateur</option>
+                <option>Autre</option>
+            </select>
+        </div>
+        <div class="form-group col">
+            <input class="form-control" type="text" name="p_sn" placeholder="N°Série">
+        </div>
+        <div class="form-group col">
+            <input class="btn btn-primary" id="Button1" type="submit" value="Enregistrer" />
+        </div>
+    </form>
+</div>
