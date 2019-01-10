@@ -3,6 +3,8 @@
 Ce projet est basé sur un contexte hospitalier qui concerne la gestion/inventaire s'apuyant sur une base de donnée MYSQL.
 Développé sous C# ASP.NET.
 
+Il a été livré dans le cadre de l'examen du BTS SIO option SLAM 2018
+
 #Fonctionnalités/Modules
 
 Gestion d'équipements:
