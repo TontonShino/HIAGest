@@ -1,4 +1,6 @@
 # Introduction
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTontonShino%2FHIAGest.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTontonShino%2FHIAGest?ref=badge_shield)
+
 
 Ce projet est basé sur un contexte hospitalier qui concerne la gestion/inventaire s'apuyant sur une base de donnée MYSQL.
 Développé sous C# ASP.NET.
@@ -55,3 +57,7 @@ Créer des utilisateurs locaux (Web deploy)
 - .NET framework 4.6.1
 - Visual Studio Express/2015/2017 (Conseillé)
 - Boostrap 4.1.1
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTontonShino%2FHIAGest.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FTontonShino%2FHIAGest?ref=badge_large)
